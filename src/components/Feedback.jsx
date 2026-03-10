@@ -1,14 +1,12 @@
 
-function Feedback({data}) {
-    let total = data.good + data.neutral + data.bad
+function Feedback({data, total, positive}) {
     return (
-        total === 0 ? <p> No feedback given</p> :
         <div>
             <p>Good: {data.good}</p>
             <p>Neutral: {data.neutral}</p>
             <p>Bad: {data.bad}</p>
-            <p>Total: {data.total}</p>
-            <p>Positive: %{data.positive}</p>
+            <p>Total: {total}</p>
+            <p>Positive: %{positive}</p>
         </div>
 
     )
