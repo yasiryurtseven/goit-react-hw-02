@@ -1,9 +1,9 @@
 import { useState, useEffect} from 'react'
 import './App.css'
-import Description  from './components/Description'
-import Options from './components/Options'
-import Notification  from './components/Notification'
-import Feedback from './components/Feedback'
+import Description  from './components/Description/Description'
+import Options from './components/Optionss/Options'
+import Notification  from './components/Notification/Notification'
+import Feedback from './components/Feedback/Feedback'
 
 const App = () => {
   const [feedback, setFeedback] = useState(() => {
@@ -17,7 +17,7 @@ const App = () => {
 
   useEffect(()=> {
     localStorage.setItem("feedback-data", JSON.stringify(feedback))
-  })
+  }, [feedback])
   const totalFeedback = feedback.good + feedback.neutral + feedback.bad;
 
   const positivePercentage = totalFeedback > 0 ? Math.round((feedback.good / totalFeedback)* 100) : 0;
@@ -34,7 +34,7 @@ const App = () => {
       good: 0,
       neutral: 0,
       bad: 0
-    })
+    })  
   };
   return (
     <>
